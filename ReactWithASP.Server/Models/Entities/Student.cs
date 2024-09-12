@@ -3,11 +3,13 @@
 namespace ReactWithASP.Server.Models.Entities;
 public class Student(string firstName, string lastName, string email) : Entity<int>
 {
-    [MaxLength(30)] public string FirstName { get; protected set; } = firstName;
+    [MaxLength(30)] public string FirstName { get; private set; } = firstName;
 
-    [MaxLength(30)] public string LastName { get; protected set; } = lastName;
+    [MaxLength(30)] public string LastName { get; private set; } = lastName;
 
-    [MaxLength(30)] public string Email { get; protected set; } = email;
+    [MaxLength(40)] public string Email { get; private set; } = email;
 
+    public void SetValues(string firstName, string lastName, string email) 
+        => (FirstName, LastName, Email) = (firstName, lastName, email);
 }
 
