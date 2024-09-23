@@ -15,16 +15,16 @@ export function Layout() {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/students">Students</Link>
+                    <Link to="/students">Studentai</Link>
                 </li>
             </ul>
         </nav>
     </header>
         <div>
             {navigation.state !== "idle" && <div className="m-1">Navigation in progress...</div>}
-            {fetcherInProgress && <div className="-1">Fetcher in progress...</div>}
+            {fetcherInProgress && <div className="m-1">Fetcher in progress...</div>}
         </div>
-        <Outlet />
+        <Outlet/>
         <footer className='bg-gray-500 text-white text-sm flex content-center justify-center items-center h-10'>
             <div>Panevėžio kolegija</div>
         </footer>

@@ -10,6 +10,6 @@ public class Student(string firstName, string lastName, string email) : Entity<i
     [MaxLength(40)] public string Email { get; private set; } = email;
 
     public void SetValues(string firstName, string lastName, string email) 
-        => (FirstName, LastName, Email) = (firstName, lastName, email);
+    => (FirstName, LastName, Email) = (firstName, lastName, email);
 }
 

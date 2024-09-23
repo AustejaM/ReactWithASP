@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ReactWithASP.Server.Models.Data;
+using ReactWithASP.Server.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,13 +13,13 @@ var mysqlConn = $"server=localhost;port=3306;user={mysqlUser};password={mysqlPas
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseMySql(mysqlConn, ServerVersion.AutoDetect(mysqlConn)));
 
-// Add services to the container.
+builder.Services.AddScoped<IGetStudentService, GetStudentService>();
+builder.Services.AddScoped<ISaveStudentService, SaveStudentService>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
 
